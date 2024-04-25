@@ -32,8 +32,6 @@ function App() {
     dispatch(setPassword(localRegisterForm.password));
   };
 
-  console.log(registerForm);
-
   // Dispatcher
   const dispatch = useDispatch();
 
