@@ -1,10 +1,12 @@
 import { InputHTMLAttributes, useId } from "react";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   labelName?: string;
 }
 
-const Input = ({
+const CustomInput = ({
   labelName,
   type = "text",
   name,
@@ -14,15 +16,10 @@ const Input = ({
 }: Props) => {
   const id = useId();
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      {labelName && (
-        <label htmlFor={id} style={{ textAlign: "left" }}>
-          {labelName}
-        </label>
-      )}
-      <input
+    <div className="col">
+      {labelName && <Label htmlFor={id}>{labelName}</Label>}
+      <Input
         value={value}
-        style={{ width: "100%", padding: 8, borderRadius: 8 }}
         type={type}
         name={name}
         id={id}
@@ -33,4 +30,4 @@ const Input = ({
   );
 };
 
-export default Input;
+export default CustomInput;
